@@ -12,7 +12,6 @@ The UI Tracker window displays a list of the most recent changes made to the Uni
 
 The window displays is dynamic and limit can be changed from the script.
 To clear the list of changes, click the "Clear History" button at the top-right of the window. A confirmation dialog will appear to confirm the action.
-Notes
 
     The UI Tracker window only tracks changes made to the Unity Editor UI, such as changes to the scene hierarchy, object properties, and component settings. It does not track changes made to the game or application UI at runtime.
     The UI Tracker window is intended for use during development and debugging. It is not recommended to leave the window open during a build or release of the game or application.
