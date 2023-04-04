@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class UITrackerWindow : EditorWindow
 {
-    private const int MaxChangeCount = 50;
+    private
+    const int MaxChangeCount = 50;
     private readonly List<string> _changes = new List<string>();
     private Vector2 _scrollPosition;
 
@@ -32,29 +33,29 @@ public class UITrackerWindow : EditorWindow
             return;
         }
 
-      
-        if (_changes.Count > 0 && _changes[_changes.Count - 1] == changeDescription)   // Check if the current change description is the same as the last one.
+        if (_changes.Count > 0 && _changes[_changes.Count - 1] == changeDescription) // Check if the current change description is the same as the last one.
         {
             return;
         }
 
-        if (_changes.Count >= MaxChangeCount)         // Remove the oldest change if the maximum number of changes has been reached.
+        if (_changes.Count >= MaxChangeCount) // Remove the oldest change if the maximum number of changes has been reached.
         {
             _changes.RemoveAt(0);
         }
 
-        _changes.Add(changeDescription);         // Add the new change description to the list of changes and update the UI.
+        _changes.Add(changeDescription); // Add the new change description to the list of changes and update the UI.
         Repaint();
     }
     // Draw the UI Tracker window.
     private void OnGUI()
     {
         GUILayout.Label("UI Tracker", EditorStyles.boldLabel);
-        _scrollPosition = EditorGUILayout.BeginScrollView(_scrollPosition, GUILayout.ExpandHeight(true));         // Add a scrollable list of change descriptions.
+        _scrollPosition = EditorGUILayout.BeginScrollView(_scrollPosition, GUILayout.ExpandHeight(true));
 
         for (int i = _changes.Count - 1; i >= 0; i--)
         {
-            EditorGUILayout.LabelField($"{i + 1}. {_changes[i]}");
+            var timeStamp = System.DateTime.Now.ToString("HH:mm"); // Get the current time as a string with only hours and minutes.
+            EditorGUILayout.LabelField($"{timeStamp} {_changes[i]}"); // Display the timestamp and change description.
         }
 
         EditorGUILayout.EndScrollView();
@@ -62,7 +63,7 @@ public class UITrackerWindow : EditorWindow
 
         if (GUI.Button(clearButtonRect, "Clear History"))
         {
-            if (EditorUtility.DisplayDialog("Clear History", "Bak emin misin? Gidecek her þey", "Sil gitsin", "Dur bakiym lazým olur"))
+            if (EditorUtility.DisplayDialog("Clear History", "Are u sure?", "Yes", "No"))
             {
                 _changes.Clear();
             }
