@@ -1,12 +1,9 @@
 # Unity UI Tracker Window
 
 The UI Tracker Window is a Unity Editor extension that tracks changes made to the Editor UI and displays them in a list. It holds the Undo/Redo history. It only tracks changes made to the Unity Editor UI, such as changes to the scene hierarchy, object properties, and component settings. The list is dynamic and limit can be changed from the script.
-
-
-
-Window             |  Clear Button Check
-:-----------------:|:-----------------:
-![Window](ss.png)|![Button](ss2.png)
+Window             |
+:-----------------:|
+![Window](ss.png)|
 ## Installation
     Download script.
     Copy the UI_Tracker.cs script to your Unity project's Assets/Editor folder.
